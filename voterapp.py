@@ -29,9 +29,47 @@ for i in range(vote_number):
         else:
             print("That is not a valid choice, but We guess its your choice.")
         results[name] = choice
-        print(f"thank you for voting, {name}!")
+        print(f"Thank you for voting, {name}!")
 
-#debugging print(results)
-print("Current voting results:")
-for voter, vote in results.items():
-    print(f"{voter}: {vote}")
+# Display the number of people who voted
+print(f"The following {vote_number} people voted:")
+for voter in results.keys():
+    print(f"{voter}")
+
+# 4. Print the results of the poll
+print(f"On the following issue: {question}")
+if yes > no:
+    print(f"Yes won with {yes} votes! to {no} votes for No.")
+elif no > yes:
+    print(f"No won with {no} votes! to {yes} votes for Yes.")
+else:
+    print(f"It's a tie! Both Yes and No received {yes} votes.")
+
+print("")
+
+# 5. Prompt the user for the password to see the voting results
+user_type = input("Are you a voter or an admin?, enter admin password to access the voter results: ").lower().strip()
+
+if user_type == poll_pwd:
+    print("Access granted. Here are the voting results:")
+    for voter, vote in results.items():
+        print(f"{voter}: {vote}")
+    print(f"Total Yes votes: {yes}")
+    print(f"Total No votes: {no}")    
+else:
+    print("Access denied. You are not authorized to view the results.")
+
+# 6. End the program
+print("Thank you for using the Voting App! Goodbye!")
+
+#print a votig sheet ASCII reward
+print("""
+    ________________
+   |                |
+   |  VOTING SHEET  |
+   |________________|
+   |                |
+   |  Yes:  [ ]     |
+   |  No:   [ ]     |
+   |________________|
+""")    
