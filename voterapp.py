@@ -1,18 +1,20 @@
 #Voter app
-# 1. Print a welcome message and explain the poll
+
+# Welcome
 print("Welcome to my Yes or No Voting App!")
 print("This app allows you to vote on a simple yes or no question.")
-# 2. Define the question to be voted on, number 
-question = input(str("What yes/no issue would you like to vote on? "))
-vote_number = int(input(str("How many people will be voting? ")))
-poll_pwd = input(str("Please set a password for the poll: "))
 
-# 3 Create a Dictionary to hold the voters and the votes
+# Poll Setup
+question = input("What yes/no issue would you like to vote on? ")
+vote_number = int(input("How many people will be voting? "))
+poll_pwd = input("Please set a password for the poll: ")
+
+# Vote Tracking
 yes = 0
 no = 0
 results = {}
 
-#Simulate voting trough a loop
+# Voting Loop
 for i in range(vote_number):
     name = input("Enter your Full Name: ").title().strip()
     if name in results.keys():
@@ -31,12 +33,12 @@ for i in range(vote_number):
         results[name] = choice
         print(f"Thank you for voting, {name}!")
 
-# Display the number of people who voted
+# Voter List
 print(f"The following {vote_number} people voted:")
 for voter in results.keys():
     print(f"{voter}")
 
-# 4. Print the results of the poll
+# Poll Results
 print(f"On the following issue: {question}")
 if yes > no:
     print(f"Yes won with {yes} votes! to {no} votes for No.")
@@ -47,7 +49,7 @@ else:
 
 print("")
 
-# 5. Prompt the user for the password to see the voting results
+# Admin Results Access
 user_type = input("Are you a voter or an admin?, enter admin password to access the voter results: ").lower().strip()
 
 if user_type == poll_pwd:
@@ -59,10 +61,10 @@ if user_type == poll_pwd:
 else:
     print("Access denied. You are not authorized to view the results.")
 
-# 6. End the program
+# Goodbye
 print("Thank you for using the Voting App! Goodbye!")
 
-#print a votig sheet ASCII reward
+# Voting Sheet ASCII Art
 print("""
     ________________
    |                |
@@ -72,4 +74,4 @@ print("""
    |  Yes:  [ ]     |
    |  No:   [ ]     |
    |________________|
-""")    
+""")
